@@ -1,8 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import css from './Section.module.css';
+import PropTypes from 'prop-types';
 
-export const Section = ({ title, children }) => {
+export function Section({ title, children }) {
   return (
     <section>
       <div className="container">
@@ -11,7 +10,7 @@ export const Section = ({ title, children }) => {
       </div>
     </section>
   );
-};
+}
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,

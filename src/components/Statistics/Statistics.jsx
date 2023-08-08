@@ -1,8 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
+import PropTypes from 'prop-types';
 
-export const Statistics = ({ props }) => {
+export function Statistics({ props }) {
   const { good, neutral, bad, total, positivePercentage } = props;
 
   return (
@@ -22,13 +21,13 @@ export const Statistics = ({ props }) => {
         <p className={css.statsTotal}>
           Total<span>{total}</span>
         </p>
-        <p className={css.statsPersantage}>
-          Positive persantage<span>{positivePercentage}%</span>
+        <p className={css.statsPercentage}>
+          Positive percentage<span>{positivePercentage}%</span>
         </p>
       </div>
     </div>
   );
-};
+}
 
 Statistics.propTypes = {
   props: PropTypes.exact({

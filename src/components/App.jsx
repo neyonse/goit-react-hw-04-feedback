@@ -1,39 +1,49 @@
-import React, { Component } from 'react';
-import { Section } from 'components/Section/Section';
-import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
-import { Statistics } from 'components/Statistics/Statistics';
-import { Notification } from 'components/Notification/Notification';
+import { useState } from 'react';
+import { Section } from 'components/Section';
+import { FeedbackOptions } from 'components/FeedbackOptions';
+import { Statistics } from 'components/Statistics';
+import { Notification } from 'components/Notification';
 
-export class App extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+export default function App() {
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
+
+  const handleClick = option => {
+    switch (option) {
+      case 'good':
+        setGood(good + 1);
+        break;
+
+      case 'neutral':
+        setNeutral(neutral + 1);
+        break;
+
+      case 'bad':
+        setBad(bad + 1);
+        break;
+
+      default:
+        break;
+    }
   };
 
-  handleClick = option => {
-    this.setState(prevState => ({ [option]: prevState[option] + 1 }));
-  };
-
-  countTotalFeedback() {
-    const { good, neutral, bad } = this.state;
+  const countTotalFeedback = () => {
     return good + neutral + bad;
-  }
+  };
 
-  countPositiveFeedbackPercentage() {
-    const { good, neutral, bad } = this.state;
+  const countPositiveFeedbackPercentage = () => {
     return Math.round((good / (good + neutral * 0.5 + bad)) * 100);
-  }
+  };
 
-  render() {
-    const { good, neutral, bad } = this.state;
-    const total = this.countTotalFeedback();
+  {
+    const total = countTotalFeedback();
     const propsStatistics = {
       good,
       neutral,
       bad,
       total,
-      positivePercentage: this.countPositiveFeedbackPercentage(),
+      positivePercentage: countPositiveFeedbackPercentage(),
     };
 
     return (
@@ -41,7 +51,7 @@ export class App extends Component {
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={['good', 'neutral', 'bad']}
-            onLeaveFeedback={this.handleClick}
+            onLeaveFeedback={handleClick}
           />
         </Section>
         <Section title="Statistics">
