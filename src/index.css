@@ -1,0 +1,65 @@
+@import-normalize; /* bring in normalize.css styles */
+@import 'fonts/fonts.css';
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #111111;
+  background-color: #e4e4e4;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  padding: 0 16px;
+  max-width: 375px;
+}
+
+@media screen and (min-width: 720px) {
+  .container {
+    padding: 0 24px;
+    max-width: 720px;
+    width: 720px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+    width: 1200px;
+  }
+}
+
+section {
+  margin: 40px auto;
+}

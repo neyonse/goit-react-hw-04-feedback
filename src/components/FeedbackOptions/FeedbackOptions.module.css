@@ -1,0 +1,142 @@
+.feedbackOptions {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  width: fit-content;
+  margin: 24px auto 0;
+}
+
+.feedbackOptionsItem {
+  cursor: pointer;
+}
+
+.feedbackBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  width: 100px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: capitalize;
+
+  background-color: #f7f7f7;
+  border: 2px solid #202020;
+
+  cursor: pointer;
+  transition: box-shadow 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.feedbackOptionsItem:first-child:is(:hover, :focus) .feedbackBtn {
+  box-shadow: 0px 2px 12px 2px #89d300;
+}
+
+.feedbackOptionsItem:nth-child(2):is(:hover, :focus) .feedbackBtn {
+  box-shadow: 0px 2px 12px 2px #ffbb28;
+}
+
+.feedbackOptionsItem:last-child:is(:hover, :focus) .feedbackBtn {
+  box-shadow: 0px 2px 12px 2px #ff5b29;
+}
+
+.feedbackOptionsItem:first-child .feedbackBtn {
+  border-radius: 50px 45px 55px 60px;
+}
+
+.feedbackOptionsItem:nth-child(2) .feedbackBtn {
+  border-radius: 60px 45px 50px 45px;
+}
+
+.feedbackOptionsItem:last-child .feedbackBtn {
+  border-radius: 55px 60px 45px 50px;
+}
+
+.feedbackBtn > svg {
+  width: 32px;
+  height: auto;
+}
+
+.feedbackOptionsItem .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.feedbackOptionsItem .icon > svg {
+  width: 32px;
+  height: auto;
+}
+
+.feedbackOptionsItem:first-child .icon > svg {
+  fill: #89d300;
+}
+
+.feedbackOptionsItem:nth-child(2) svg {
+  fill: #ffbb28;
+}
+
+.feedbackOptionsItem:last-child .icon > svg {
+  fill: #ff5b29;
+}
+
+.feedbackOptionsItem:first-child .iconAnimation {
+  position: absolute;
+  opacity: 0;
+
+  animation: HeartAnimation 1500ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-iteration-count: 1;
+}
+
+.feedbackOptionsItem:last-child .iconAnimation {
+  position: absolute;
+  opacity: 0;
+
+  animation: TeardropAnimation 1500ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-iteration-count: 1;
+}
+
+.feedbackOptionsItem:first-child .iconAnimation > svg {
+  fill: #ff5b29;
+}
+
+.feedbackOptionsItem:last-child .iconAnimation > svg {
+  fill: #29dfff;
+}
+
+@keyframes HeartAnimation {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(-110%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5) translateY(-150%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2) translateY(-300%);
+  }
+}
+
+@keyframes TeardropAnimation {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.5) translateX(50%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1) translateX(50%) translateY(75%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2) translateX(20%) translateY(250%);
+  }
+}
